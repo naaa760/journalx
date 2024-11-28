@@ -1,25 +1,48 @@
-import Header from "@/components/header"; // Import your custom header component
+import Header from "@/components/header";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
+import "react-quill-new/dist/quill.snow.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Journalx",
-  description: "A Journaling App",
+  title: "JournalX",
+  description: "",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+    // appearance={{
+    //   baseTheme: shadesOfPurple,
+    //   variables: {
+    //     colorPrimary: "#3b82f6",
+    //     colorBackground: "#1a202c",
+    //     colorInputBackground: "#2D3748",
+    //     colorInputText: "#F3F4F6",
+    //   },
+    //   elements: {
+    //     formButtonPrimary: "bg-purple-600 hover:bg-purple-700 text-white",
+    //     card: "bg-gray-800",
+    //     headerTitle: "text-blue-400",
+    //     headerSubtitle: "text-gray-400",
+    //   },
+    // }}
+    >
       <html lang="en">
-        <body className={inter.className}>
-          <div className="bg-[url('/bg.jpg')] opacity-50 fixed -z-20 inset-0" />
-          <Header /> {/* Use your custom Header component */}
+        <body
+          className={`${inter.className} bg-gradient-to-b from-green-50 via-amber-50 to-green-50`}
+        >
+          <div className="inset-0 bg-[url('/bg.jpg')] opacity-50 fixed -z-10" />
+          <Header />
           <main className="min-h-screen">{children}</main>
-          <footer className="bg-lime-200 py-12 bg-opacity-10">
-            <div className="mx-auto px-4 text-center text-gray-900">
-              <p>Made by Neha Prasad 👩🏻‍🦰</p>
+          <Toaster richColors />
+
+          <footer className="bg-lime-300 py-12 bg-opacity-10">
+            <div className="container mx-auto px-4 text-center text-gray-900">
+              <p>Made by Neha</p>
             </div>
           </footer>
         </body>
