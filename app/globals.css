@@ -70,3 +70,10 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .gradient-title {
+    @apply font-extrabold bg-gradient-to-br from-lime-500 via-lime-300
+    to-lime-400 bg-clip-text tracking-tighter text-transparent pr-2 pb-2;
+  }
+}
