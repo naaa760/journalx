@@ -77,3 +77,15 @@ body {
     to-lime-400 bg-clip-text tracking-tighter text-transparent pr-2 pb-2;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.ql-container {
+  min-height: 80vh;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
