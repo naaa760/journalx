@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   LineChart,
@@ -44,9 +44,14 @@ const MoodAnalytics = () => {
 
   const { isLoaded } = useUser();
 
-  useEffect(() => {
+  // Wrap `fetchAnalytics` with `useCallback` to ensure a stable reference
+  const handleFetchAnalytics = useCallback(() => {
     fetchAnalytics(period);
-  }, [period]);
+  }, [fetchAnalytics, period]);
+
+  useEffect(() => {
+    handleFetchAnalytics();
+  }, [handleFetchAnalytics]);
 
   if (loading || !analytics?.data || !isLoaded) {
     return <MoodAnalyticsSkeleton />;
