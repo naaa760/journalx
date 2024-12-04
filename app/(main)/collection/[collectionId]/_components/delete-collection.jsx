@@ -69,7 +69,7 @@ export default function DeleteCollectionDialog({
                 {entriesCount === 1 ? "entry" : "entries"}
               </li>
             </ul>
-            <p className="font-semibold text-red-600">
+            <p className="font-semibold text-green-600">
               This action cannot be undone.
             </p>
           </div>
@@ -78,7 +78,7 @@ export default function DeleteCollectionDialog({
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <Button
             onClick={handleDelete}
-            className="bg-red-500 hover:bg-red-600"
+            className="bg-green-500 hover:bg-green-600"
             disabled={isDeleting}
           >
             {isDeleting ? "Deleting..." : "Delete Collection"}
